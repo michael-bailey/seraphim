@@ -1,6 +1,9 @@
 plugins {
 	kotlin("jvm") version libs.versions.kotlin
+
 	application
+
+	id("io.ktor.plugin") version libs.versions.ktor
 
 	alias(libs.plugins.kotlinPluginSerialization)
 }
@@ -16,5 +19,5 @@ dependencies {
 application {
 	// Define the Fully Qualified Name for the application main class
 	// (Note that Kotlin compiles `App.kt` to a class with FQN `com.example.app.AppKt`.)
-	mainClass = "net.michael_bailey.app.AppKt"
+	mainClass = "net.michael_bailey.AppKt"
 }

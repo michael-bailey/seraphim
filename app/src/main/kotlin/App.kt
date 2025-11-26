@@ -1,24 +1,29 @@
-package net.mi
+package net.michael_bailey
 
-import io.ktor.http.HttpStatusCode
-import io.ktor.server.application.Application
-import io.ktor.server.application.call
-import io.ktor.server.application.install
-import io.ktor.server.html.respondHtml
-import io.ktor.server.plugins.statuspages.StatusPages
-import io.ktor.server.response.respondRedirect
-import io.ktor.server.routing.Routing
+import io.ktor.http.*
+import io.ktor.server.application.*
+import io.ktor.server.engine.*
+import io.ktor.server.html.*
+import io.ktor.server.netty.*
+import io.ktor.server.plugins.statuspages.*
+import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.server.routing.routing
-import kotlinx.html.body
-import kotlinx.html.h1
-import kotlinx.html.head
-import kotlinx.html.p
-import kotlinx.html.title
-import javax.naming.spi.Resolver
+import kotlinx.html.*
+import net.mi.matcher.GoogleSeraphMatcher
+import net.mi.matcher.WikipediaSeraphMatcher
+import net.michael_bailey.utils.SeraphMatcher
+
+fun main(args: Array<String>) {
+	embeddedServer(Netty, module = { module() }, port = 8080).start(true)
+}
 
 fun Application.module() {
-	install(Routing)
+
+	val matcherIndex = listOf<SeraphMatcher>(
+		GoogleSeraphMatcher,
+		WikipediaSeraphMatcher
+	)
+
 	install(StatusPages) {
 		exception<Throwable> { call, cause ->
 			call.respondHtml(HttpStatusCode.InternalServerError) {
@@ -37,7 +42,7 @@ fun Application.module() {
 				head { title { +"Landing" } }
 				body {
 					h1 { +"Welcome" }
-					p { +"Use the /resolve?target=example command to redirect." }
+					p { +"Use the /resolve?target=g Hello world" }
 				}
 			}
 		}
@@ -46,7 +51,17 @@ fun Application.module() {
 			val target = call.request.queryParameters["target"]
 				?: throw IllegalArgumentException("Missing 'target' parameter")
 
-			call.respondRedirect("https://www.google.co.uk", permanent = false)
+			val command = target.split(" ").first()
+
+			val matcher = matcherIndex.first {
+				it.match(command)
+			}
+
+			val args = matcher.getArguments(command, target)
+
+			val result = matcher.applet.buildURL(args)
+
+			call.respondRedirect(result, permanent = false)
 		}
 	}
 }

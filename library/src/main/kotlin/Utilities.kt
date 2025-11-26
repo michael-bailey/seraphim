@@ -1,8 +1,12 @@
+@file:OptIn(ExperimentalTime::class)
+
 package net.michael_bailey.utils
 
-import kotlinx.datetime.*
 import kotlinx.serialization.Serializable
 import kotlinx.coroutines.*
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
 
 @Serializable
 class Printer(val message: String) {
