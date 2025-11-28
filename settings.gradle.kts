@@ -14,3 +14,4 @@ include(":library")
 include(":app")
 
 rootProject.name = "seraphim"
+include("british-information-technologies-seraph-applets")
