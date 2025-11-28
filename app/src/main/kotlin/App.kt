@@ -19,10 +19,12 @@ fun main(args: Array<String>) {
 
 fun Application.module() {
 
-	val matcherIndex = listOf<SeraphMatcher>(
+	val matcherIndex: List<SeraphMatcher> = listOf(
 		GoogleSeraphMatcher,
 		WikipediaSeraphMatcher
-	)
+	) + ExternalAppletLoader.matchers
+
+	println(matcherIndex.count())
 
 	install(StatusPages) {
 		exception<Throwable> { call, cause ->
