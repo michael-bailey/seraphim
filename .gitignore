@@ -43,3 +43,16 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/plugins/library.jar
+/app/plugins/library copy/META-INF/library.kotlin_module
+/app/plugins/library copy/META-INF/MANIFEST.MF
+/app/plugins/library copy/net/michael_bailey/ExternalSeraphProvider.class
+/app/plugins/library copy/net/michael_bailey/Printer$$serializer.class
+/app/plugins/library copy/net/michael_bailey/Printer$Companion.class
+/app/plugins/library copy/net/michael_bailey/Printer$printMessage$1$1.class
+/app/plugins/library copy/net/michael_bailey/Printer$printMessage$1.class
+/app/plugins/library copy/net/michael_bailey/Printer.class
+/app/plugins/library copy/net/michael_bailey/SeraphApplet.class
+/app/plugins/library copy/net/michael_bailey/SeraphMatcher.class
+/app/plugins/british-information-technologies-seraph-applets.jar
+/app/plugins/library copy.zip
