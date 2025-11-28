@@ -10,9 +10,8 @@ plugins {
 
 dependencies {
 	// Apply the kotlinx bundle of dependencies from the version catalog (`gradle/libs.versions.toml`).
-	implementation(libs.bundles.kotlinxEcosystem)
-
-	implementation(libs.bundles.ktor.server)
+	api(libs.bundles.kotlinxEcosystem)
+	api(libs.bundles.ktor.server)
 
 	testImplementation(kotlin("test"))
 }

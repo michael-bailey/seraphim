@@ -9,9 +9,9 @@ import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.html.*
-import net.mi.matcher.GoogleSeraphMatcher
-import net.mi.matcher.WikipediaSeraphMatcher
-import net.michael_bailey.utils.SeraphMatcher
+import net.michael_bailey.external.ExternalAppletLoader
+import net.michael_bailey.matcher.GoogleSeraphMatcher
+import net.michael_bailey.matcher.WikipediaSeraphMatcher
 
 fun main(args: Array<String>) {
 	embeddedServer(Netty, module = { module() }, port = 8080).start(true)

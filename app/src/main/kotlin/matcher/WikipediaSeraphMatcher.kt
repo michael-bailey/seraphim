@@ -1,8 +1,8 @@
-package net.mi.matcher
+package net.michael_bailey.matcher
 
-import net.mi.applet.WikipediaSeraphApplet
-import net.michael_bailey.utils.SeraphApplet
-import net.michael_bailey.utils.SeraphMatcher
+import net.michael_bailey.SeraphApplet
+import net.michael_bailey.SeraphMatcher
+import net.michael_bailey.applet.WikipediaSeraphApplet
 
 object WikipediaSeraphMatcher : SeraphMatcher {
 	override val name: String = this::class.qualifiedName.toString()
