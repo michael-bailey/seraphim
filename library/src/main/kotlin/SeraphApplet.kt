@@ -1,6 +1,6 @@
-package net.michael_bailey.utils
+package net.michael_bailey
 
-import io.ktor.http.Url
+import io.ktor.http.*
 
 interface SeraphApplet {
 	val name: String

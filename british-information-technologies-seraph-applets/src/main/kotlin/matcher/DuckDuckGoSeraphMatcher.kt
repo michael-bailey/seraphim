@@ -2,14 +2,14 @@ package net.michael_bailey.matcher
 
 import net.michael_bailey.SeraphApplet
 import net.michael_bailey.SeraphMatcher
-import net.michael_bailey.applet.WikipediaSeraphApplet
+import net.michael_bailey.applet.DuckDuckGoSeraphApplet
 
-object WikipediaSeraphMatcher : SeraphMatcher {
+object DuckDuckGoSeraphMatcher : SeraphMatcher {
 	override val name: String = this::class.qualifiedName.toString()
-	override val applet: SeraphApplet = WikipediaSeraphApplet
+	override val applet: SeraphApplet = DuckDuckGoSeraphApplet
 
-	private val commandStrings = listOf("w", "wiki", "wikipedia")
-	private val argRegex = Regex("""^(?:w|wiki|wikipedia)\s+(.+)""")
+	private val commandStrings = listOf("d", "ddg", "duck", "duckduckgo")
+	private val argRegex = Regex("""^(?:d|ddg|duck|duckduckgo)\s+(.+)""")
 
 	override fun match(command: String): Boolean =
 		commandStrings.contains(command)

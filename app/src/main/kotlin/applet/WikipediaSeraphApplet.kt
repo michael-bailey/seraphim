@@ -1,7 +1,7 @@
-package net.mi.applet
+package net.michael_bailey.applet
 
 import io.ktor.http.*
-import net.michael_bailey.utils.SeraphApplet
+import net.michael_bailey.SeraphApplet
 
 object WikipediaSeraphApplet : SeraphApplet {
 	override val name: String = "wikipedia"

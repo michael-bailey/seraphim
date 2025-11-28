@@ -1,4 +1,4 @@
-package net.michael_bailey.utils
+package net.michael_bailey
 
 interface SeraphMatcher {
 	val name: String

@@ -3,14 +3,14 @@ package net.michael_bailey.applet
 import io.ktor.http.*
 import net.michael_bailey.SeraphApplet
 
-object GoogleSeraphApplet : SeraphApplet {
-	override val name: String = "google"
-	override val description: String = "Built-in applet for handling google requests"
+object DuckDuckGoSeraphApplet : SeraphApplet {
+	override val name: String = "duckduckgo"
+	override val description: String =
+		"Built-in applet for handling DuckDuckGo search requests"
 
 	override fun buildURL(input: Map<String, String>): Url = URLBuilder().apply {
 		protocol = URLProtocol.HTTPS
-		host = "www.google.com"
-		path("search")
+		host = "duckduckgo.com"
 		parameters.append("q", input["query"] ?: "Hello world")
 	}.build()
 }
